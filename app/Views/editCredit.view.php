@@ -5,7 +5,7 @@
     <title>Verleih Bearbeitung</title>
 </head>
 <body>
-<form action="ValidationController.php" method="post">
+<form action="edit" method="post">
         <fieldset>
             <legend>Personal Daten</legend>
             <label for="Name">Name:</label>

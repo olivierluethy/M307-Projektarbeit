@@ -2,7 +2,7 @@
 require 'core/bootstrap.php';
 
 $routes = [
-	'credit' => 'CreditController@refresh',
+	'credit/view' => 'CreditController@refresh',
 	'credit/create' => 'CreditController@create',
 	'credit/update' => 'CreditController@update',
 ];
