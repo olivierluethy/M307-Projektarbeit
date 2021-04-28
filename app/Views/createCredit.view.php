@@ -5,7 +5,7 @@
     <title>Verleih Erfassung</title>
 </head>
 <body>
-<form action="ValidationController.php" method="post">
+<form action="create" method="post">
         <fieldset>
             <legend>Personal Daten</legend>
 
