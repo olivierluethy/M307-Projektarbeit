@@ -10,10 +10,10 @@
             <legend>Personal Daten</legend>
 
             <label for="Name">Name:</label>
-            <input type="text" name="name"><br><br>
+            <input type="text" name="name" require><br><br>
 
             <label for="email">Email:</label>
-            <input type="text" name="email"><br><br>
+            <input type="text" name="email" require><br><br>
 
             <label for="telefon">Telefon:</label>
             <input type="text" name="telefon"><br><br>
@@ -21,10 +21,10 @@
         <fieldset>
             <legend>Verleih Daten</legend>
             <label for="raten">Anzahl Raten:</label>
-            <input type="text" name="raten"><br><br>
+            <input type="text" name="raten" require><br><br>
 
             <label for="creditPackage">Kredit Paket:</label>
-            <input type="text" name="creditPackage">
+            <input type="text" name="creditPackage" require>
         </fieldset>
         <button type="submit" name="form-submit">Kreditverleih erfassen</button>
 
