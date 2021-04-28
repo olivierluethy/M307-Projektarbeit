@@ -5,7 +5,7 @@ class CreditController{
         $pdo = connectDatabase();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $statement = $pdo->prepare('SELECT * FROM credits');
+        $statement = $pdo->prepare('SELECT * FROM verleih');
         $statement->execute();
         $tasks = $statement->fetchAll();
 
