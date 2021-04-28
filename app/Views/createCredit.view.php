@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Verleih Ansicht</title>
+    <title>Verleih Erfassung</title>
 </head>
 <body>
-    <form action="">
+<form action="">
         <fieldset>
             <legend>Personal Daten</legend>
             <label for="Name">Name:</label>
