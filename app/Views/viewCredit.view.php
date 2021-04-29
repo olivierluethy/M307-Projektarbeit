@@ -59,6 +59,7 @@ button:hover{
             <th>Telefon</th>
             <th>Anzahl Raten</th>
             <th>Kredit Paket</th>
+            <th>Verleih erfasst am</th>
             <th>Abgeschlossen</th>
             <th>Bearbeiten</th> 
         </tr>
@@ -70,6 +71,7 @@ button:hover{
                 <td><?= $credit['telefon'] ?></td>
                 <td><?= $credit['anzahl_raten'] ?></td>
                 <td><?= $credit['fk_kreditpaketID'] ?></td>
+                <td><?= $credit['created_at'] ?></td>
                 <td><input type="checkbox"/></td>
                 <td><a href="update?id=<?= $credit['verleihID'] ?>">Verleih bearbeiten</a></td>
             </tr>
