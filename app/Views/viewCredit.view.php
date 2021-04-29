@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Verleih Ansicht</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -86,14 +87,27 @@
                 <td><?= $credit['anzahl_raten'] ?></td>
                 <td><?= $credit['fk_kreditpaketID'] ?></td>
                 <td><?= $credit['created_at'] ?></td>
-                <td><input type="checkbox" /></td>
+                <td><input type="checkbox" id="myCheck" onclick="myFunction()"></td>
                 <td><a href="update?id=<?= $credit['verleihID'] ?>">Verleih bearbeiten</a></td>
             </tr>
         <?php endforeach; ?>
 
     </table>
 
+    <script>
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.style="display: block; float: right;"
+  } else {
+     text.style.display = "none";
+  }
+}
+</script>
+
     <a href="create"><button>Verleih hinzufügen</button></a>
+    <a id="text" style="display: none;" href="sync?id=<?= $credit['verleihID'] ?>"><button><i class="fas fa-sync-alt"></i> Refresh</button></a>
     <script src="../public/js/clientSideValidation.js"></script>
 </body>
 

@@ -5,6 +5,7 @@ $routes = [
 	'credit/view' => 'CreditController@refresh',
 	'credit/create' => 'CreditController@create',
 	'credit/update' => 'CreditController@update',
+	'credit/sync' => 'CreditController@sync',
 ];
 
 $db = [

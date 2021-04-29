@@ -5,7 +5,7 @@ class CreditController{
         $pdo = connectDatabase();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $statement = $pdo->prepare('SELECT * FROM verleihe');
+        $statement = $pdo->prepare('SELECT * FROM verleihe WHERE verleih_status=0');
         $statement->execute();
         $credits = $statement->fetchAll();
 
@@ -73,5 +73,27 @@ class CreditController{
         $credit = $statement->fetchAll();
         }
         require 'app/Views/editCredit.view.php';
+    }
+
+    public function sync(){
+        $id = $_GET['id'];
+
+        $title = '';
+        $pdo = connectDatabase();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $statement = $pdo->prepare('UPDATE `verleihe` SET verleih_status=1 WHERE verleihID = :id');
+            $statement->bindParam(':id', $id);
+            $statement->execute();
+            // var_dump($statement);
+            // var_dump($_POST);
+            header('Location: http://localhost/uek_projektarbeit/credit/view');
+
+            $statement = $pdo->prepare('SELECT * FROM verleihe WHERE verleihID = :id');
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        $credit = $statement->fetchAll();
+
+         require 'app/Views/editCredit.view.php';
     }
 }
