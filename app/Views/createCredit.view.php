@@ -22,10 +22,10 @@
         </fieldset>
         <fieldset>
             <legend>Verleih Daten</legend>
-            <label for="raten">Anzahl Raten:</label>
+            <label for="raten">Anzahl Raten (von 1 - 10):</label>
             <input type="text" name="raten" id="raten" require><br><br>
             <label id="returnDate">Rückzahlungsdatum: </label><br><br>
-            <label for="creditPackage">Kredit Paket:</label>
+            <label for="creditPackage">Kredit Paket (von 1 - 25):</label>
             <input type="text" name="creditPackage" id="creditPackage" require>
         </fieldset>
         <button type="submit" name="form-submit">Kreditverleih erfassen</button>

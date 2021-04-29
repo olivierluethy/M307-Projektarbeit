@@ -28,7 +28,7 @@ class Verleih
         }
 
         $creditPackage = htmlspecialchars($_POST['creditPackage']);
-        if ($creditPackage < 1 || $creditPackage > 40) {
+        if ($creditPackage < 1 || $creditPackage > 25) {
             $isValid = false;
         }
 
@@ -43,6 +43,7 @@ class Verleih
             $statement->bindParam(':created_at', date("Y/m/d"), PDO::PARAM_STR);
             $statement->execute();
         }
+        return $isValid;
     }
 
     public function update($name, $email, $telefon, $kredit_packet, $verleih_status, $id)
@@ -65,7 +66,7 @@ class Verleih
         }
 
         $creditPackage = htmlspecialchars($_POST['kredit_packet']);
-        if ($kredit_packet < 1 || $kredit_packet > 40) {
+        if ($kredit_packet < 1 || $kredit_packet > 25) {
             $isValid = false;
         }
 
@@ -80,6 +81,7 @@ class Verleih
             $statement->bindParam(':id', $id);
             $statement->execute();
         }
+        return $isValid;
     }
 
     public function sync($id)

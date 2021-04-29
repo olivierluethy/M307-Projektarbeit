@@ -25,9 +25,13 @@ class CreditController{
             $raten = $_POST['raten'];
             $creditPackage = $_POST['creditPackage'];
 
-            $verleih->create($name, $email, $telefon, $raten, $creditPackage);
-
-            header('Location: http://localhost/uek_projektarbeit/credit/view'); // Besser: header('Location: http://localhost/deinProjekt/task);
+            $isValid=$verleih->create($name, $email, $telefon, $raten, $creditPackage);
+            if($isValid==true){
+                header('Location: http://localhost/uek_projektarbeit/credit/view'); // Besser: header('Location: http://localhost/deinProjekt/task);
+            }else{
+                //header('Location: http://localhost/uek_projektarbeit/credit/create');
+                echo "<script>alert('Fehlerhafte Daten beim Erstellen des Verleihes')</script>";
+            }
         }
 
         require 'app/Views/createCredit.view.php';
@@ -69,13 +73,18 @@ class CreditController{
         $pdo = connectDatabase();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $verleih->sync($id);
-
+        $statement = $pdo->prepare('UPDATE `verleihe` SET verleih_status=1 WHERE verleihID = :id');
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        // var_dump($statement);
+        // var_dump($_POST);
         header('Location: http://localhost/uek_projektarbeit/credit/view');
 
         $statement = $pdo->prepare('SELECT * FROM verleihe WHERE verleihID = :id');
         $statement->bindParam(':id', $id);
         $statement->execute();
         $credit = $statement->fetchAll();
+
+        require 'app/Views/editCredit.view.php';
     }
 }

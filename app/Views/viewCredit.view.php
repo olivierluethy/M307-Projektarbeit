@@ -87,27 +87,15 @@
                 <td><?= $credit['anzahl_raten'] ?></td>
                 <td><?= $credit['fk_kreditpaketID'] ?></td>
                 <td><?= $credit['created_at'] ?></td>
-                <td><input type="checkbox" id="myCheck" onclick="myFunction()"><?= strtotime(strtotime($credit['created_at']) + ((15 * $credit['anzahl_raten']) * 24 * 60 * 60)) >= strtotime(time()) ? "🌞" : "⚡" ?></td>
+                <td><a href="sync?id=<?= $credit['verleihID'] ?>">Verleih nicht mehr anzeigen &nbsp</a><?= strtotime(strtotime($credit['created_at']) + ((15 * $credit['anzahl_raten']) * 24 * 60 * 60)) >= strtotime(time()) ? "🌞" : "⚡" ?></td>
                 <td><a href="update?id=<?= $credit['verleihID'] ?>">Verleih bearbeiten</a></td>
             </tr>
         <?php endforeach; ?>
 
     </table>
 
-    <script>
-        function myFunction() {
-            var checkBox = document.getElementById("myCheck");
-            var text = document.getElementById("text");
-            if (checkBox.checked == true) {
-                text.style = "display: block; float: right;"
-            } else {
-                text.style.display = "none";
-            }
-        }
-    </script>
-
     <a href="create"><button>Verleih hinzufügen</button></a>
-    <a id="text" style="display: none;" href="sync?id=<?= $credit['verleihID'] ?>"><button><i class="fas fa-sync-alt"></i> Refresh</button></a>
+
     <script src="../public/js/clientSideValidation.js"></script>
 </body>
 
