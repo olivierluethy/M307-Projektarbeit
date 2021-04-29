@@ -28,7 +28,7 @@ class Verleih
         }
 
         $creditPackage = htmlspecialchars($_POST['creditPackage']);
-        if ($creditPackage < 1 || $creditPackage > 25) {
+        if ($creditPackage < 1 || $creditPackage > 40) {
             $isValid = false;
         }
 
@@ -66,7 +66,7 @@ class Verleih
         }
 
         $creditPackage = htmlspecialchars($_POST['kredit_packet']);
-        if ($kredit_packet < 1 || $kredit_packet > 25) {
+        if ($kredit_packet < 1 || $kredit_packet > 40) {
             $isValid = false;
         }
 
