@@ -24,13 +24,22 @@
             <legend>Verleih Daten</legend>
             <label for="raten">Anzahl Raten:</label>
             <input type="text" name="raten" id="raten" require><br><br>
-
+            <label id="returnDate">Rückzahlungsdatum: </label><br><br>
             <label for="creditPackage">Kredit Paket:</label>
             <input type="text" name="creditPackage" id="creditPackage" require>
         </fieldset>
         <button type="submit" name="form-submit">Kreditverleih erfassen</button>
     </form>
     <script src="../public/js/clientSideValidation.js"></script>
+    <script>
+        window.addEventListener("load", function() {
+            document.querySelector('#raten').addEventListener('change', function(evt) {
+                const timeElapsed = Date.now() + ((document.getElementById("raten").value * 15) * 86400000);
+                const date = new Date(timeElapsed).toLocaleDateString();
+                document.getElementById("returnDate").textContent = ("Rückzahlungsdatum: " + date);
+            });
+        });
+    </script>
 </body>
 
 </html>
