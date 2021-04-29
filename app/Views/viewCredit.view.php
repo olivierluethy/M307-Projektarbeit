@@ -45,28 +45,33 @@ button{
 }
 button:hover{
     background-color: hsl(197, 100%, 33%);
+    cursor: pointer;
 }
 </style>
 
     <h1>Verleihdaten</h1>
 
     <table>
-        
+
         <tr> 
             <th>Name</th> 
             <th>Email</th> 
             <th>Telefon</th>
+            <th>Anzahl Raten</th>
+            <th>Kredit Paket</th>
             <th>Abgeschlossen</th>
             <th>Bearbeiten</th> 
         </tr>
 
         <?php foreach ($credits as $credit): ?>
             <tr>
-                <td><?= $credit['Name'] ?></td>
-                <td><?= $credit['Email'] ?></td>
-                <td><?= $credit['Telefon'] ?></td>
+                <td><?= $credit['name'] ?></td>
+                <td><?= $credit['email'] ?></td>
+                <td><?= $credit['telefon'] ?></td>
+                <td><?= $credit['anzahl_raten'] ?></td>
+                <td><?= $credit['fk_kreditpaketID'] ?></td>
                 <td><input type="checkbox"/></td>
-                <td><a href="update?id=<?= $credit['PersonID'] ?>">Verleih bearbeiten</a></td>
+                <td><a href="update?id=<?= $credit['verleihID'] ?>">Verleih bearbeiten</a></td>
             </tr>
         <?php endforeach; ?>
 
